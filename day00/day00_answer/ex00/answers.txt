@@ -1,0 +1,5 @@
+pip list | awk '{print $1}'
+pip list
+pip show numpy
+pip search tesseract
+pip freeze
