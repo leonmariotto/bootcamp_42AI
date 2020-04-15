@@ -39,6 +39,13 @@ class Vector():
         return strout
 
     def __add__(self, num):
+        if type(num) is Vector:
+            if num.size != self.size:
+                print("Error")
+                return -1
+            v = Vector(0)
+            v.value = [ad(i, j) for i, j in zip(self.value, num.value)]
+            return v
         try:
             num = int(num)
         except ValueError:
@@ -52,6 +59,13 @@ class Vector():
         return self.__add__(num)
 
     def __sub__(self, num):
+        if type(num) is Vector:
+            if num.size != self.size:
+                print("Error")
+                return -1
+            v = Vector(0)
+            v.value = [su(i, j) for i, j in zip(self.value, num.value)]
+            return v
         try:
             num = int(num)
         except ValueError:
@@ -62,6 +76,13 @@ class Vector():
         return v
 
     def __rsub__(self, num):
+        if type(num) is Vector:
+            if num.size != self.size:
+                print("Error")
+                return -1
+            v = Vector(0)
+            v.value = [su(j, i) for i, j in zip(self.value, num.value)]
+            return v
         try:
             num = int(num)
         except ValueError:
@@ -103,6 +124,13 @@ class Vector():
         return v
 
     def __mul__(self, num):
+        if type(num) is Vector:
+            if num.size != self.size:
+                print("Error")
+                return -1
+            v = Vector(0)
+            v.value = [mu(i, j) for i, j in zip(self.value, num.value)]
+            return v
         try:
             num = int(num)
         except ValueError:
