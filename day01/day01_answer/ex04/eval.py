@@ -11,6 +11,9 @@ class Evaluator():
         for elem in zipped:
             c = c + len(elem[1]) * elem[0]
         print(c)
+        return zipped
+    zip_evaluate = staticmethod(zip_evaluate)
+
 
     def enumerate_evaluate(coefs, words):
         if type(coefs) is not list and type(words) is not list:
@@ -24,3 +27,7 @@ class Evaluator():
         for i, val in words:
             c = c + len(val) * coefs[i]
         print(c)
+        return words
+    enumerate_evaluate = staticmethod(enumerate_evaluate)
+
+# TODO Fais que les method soient en static, cad quel puisse etre appele par la classe et non par une instance de la classe

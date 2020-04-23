@@ -55,49 +55,47 @@ class Bank(object):
                 ad = account
         if ao is None:
             print("Account", ao, "do not exist")
-            return -1
+            return False
         if ad is None:
             print("Account", ad, "do not exist")
-            return -1
+            return False
 
         # Check if accounts are corrupted :
-        if hasattr(ao, 'value') is False
-        or hasattr(ao, 'id') is False or hasattr(ao, 'name') is False:
+        if hasattr(ao, 'value') is False or hasattr(ao, 'id') is False or hasattr(ao, 'name') is False:
             print("The account ORIGIN of this transaction\
             is corrupted,\nplease fix it.")
-            return -1
+            return False
 
-        if hasattr(ad, 'value') is False
-        or hasattr(ad, 'id') is False or hasattr(ad, 'name') is False:
+        if hasattr(ad, 'value') is False or hasattr(ad, 'id') is False or hasattr(ad, 'name') is False:
             print("The account DEST of this transaction\
             is corrupted,\nplease fix it.")
-            return -1
+            return False
 
         cor = 0
         for key in ao.__dict__:
             if key[0] == 'b':
                 print("The account ORIGIN of this transaction\
                 is corrupted,\nplease fix it.")
-                return -1
+                return False
             if cor == 0 and (key.find('zip') == 0 or key.find('addr') == 0):
                 cor = 1
         if cor == 0 or len(ao.__dict__) % 2 == 0:
             print("The account ORIGIN of this transaction\
             is corrupted,\nplease fix it.")
-            return -1
+            return False
 
         cor = 0
         for key in ad.__dict__:
             if key[0] == 'b':
                 print("The account DEST of this transaction\
                 is corrupted,\nplease fix it.")
-                return -1
+                return False
             if cor == 0 and (key.find('zip') == 0 or key.find('addr') == 0):
                 cor = 1
         if cor == 0 or len(ao.__dict__) % 2 == 0:
             print("The account DEST of this transaction\
             is corrupted,\nplease fix it.")
-            return -1
+            return False
 
         if ao.value < amount:
             print("This man don't have money, too bad")

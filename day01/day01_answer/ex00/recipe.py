@@ -2,8 +2,7 @@ class Recipe():
     """ Classe pour une recette def\
     __init__(self, name, cl, ct, ing, desc)"""
     def __init__(self, name, cl, ct, ing, desc, rt):
-        if name == '' or ing == '' or
-        (rt != 'starter' and rt != 'lunch' and rt != 'dessert'):
+        if name == '' or ing == '':
             print("Error, exit")
             return
         try:
@@ -15,7 +14,7 @@ class Recipe():
         self.name = name
         self.cooking_lvl = cl
         self.cooking_time = ct
-        self.ingredients = ing
+        self.ingredients = list(ing)
         self.description = desc
         self.recipe_type = rt
 

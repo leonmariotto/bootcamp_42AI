@@ -11,7 +11,7 @@ b.add_recipe(r)
 r = Recipe("Cou", 1, 2, "A:Z:E", "Hello", 'truc')
 b.add_recipe(r)
 
-
+print(type(r.ingredient))
 b.get_recipe_by_name("Coucou")
 b.get_recipe_by_name("Couc")
 b.get_recipe_by_name("Cou")
