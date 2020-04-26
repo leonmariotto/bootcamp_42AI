@@ -21,10 +21,7 @@ class ColorFilter():
         return a
     
     def to_green(self, array):
-        a = np.array(array)
-        a[:, :, 0] = 0
-        a[:, :, 2] = 0
-        return a
+        return array * [0,1,0]
     
     def to_red(self, array):
         a = np.array(array)

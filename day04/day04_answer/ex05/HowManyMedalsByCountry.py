@@ -4,7 +4,7 @@ import pandas as pd
 def howManyMedalsByCountry(dataset, cname):
     dataset = dataset.loc[dataset['Team'] == cname]
     res = {}
-    for index, row in dataset.iterrows():
+    for index, row in dataset.drop_duplicates(subset='Name').iterrows():
         if row['Year'] not in res:
             res[row['Year']] = {'G': 0, 'S': 0, 'B': 0}
         if type(row['Medal']) is str:
