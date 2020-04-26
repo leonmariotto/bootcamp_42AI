@@ -12,7 +12,15 @@ class AdvancedFilter:
         patch_means = np.empty((mm, nn, p))
         for i in range(mm):
             for j in range(nn):
-                patch_means[i, j] = arr[i: i+size, j: j+size].mean(axis=0).mean(axis=0)
+                im = int(i - (size - 1) / 2)
+                ip = int(i + (size - 1) / 2)
+                jp = int(j + (size - 1) / 2)
+                jm = int(j - (size - 1) / 2)
+                if im < 0:
+                    im = 0
+                if jm < 0:
+                    jm = 0
+                patch_means[i, j] = arr[im: ip, jm: jp].mean(axis=0).mean(axis=0)
         return patch_means
 
     def gaussian_blur(self, array):

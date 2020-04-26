@@ -30,6 +30,10 @@ img = i.load("../resources/42AI.png")
 print("\n\ngreen filter :")
 i.display(c.to_green(img))
 img = i.load("../resources/42AI.png")
+print("\n\ncelluloid filter w:")
+i.display(c.celluloid(img))
+
+img = i.load("../resources/42AI.png")
 
 print("\n\nto_grayscale filter w:")
 i.display(c.to_grayscale(img, 'w'))

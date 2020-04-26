@@ -5,6 +5,7 @@ class ScrapBooker():
     pass
 
   def crop(self, array, dimensions, position=(0,0)):
+    dimensions = (dimensions[0] + position[0], dimensions[1] + position[1])
     array = array[position[0]:dimensions[0], position[1]:dimensions[1]]
     return array
 

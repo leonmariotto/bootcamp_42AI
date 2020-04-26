@@ -8,12 +8,10 @@ class ImageProcessor():
 
   def load(self, path):
     img = mpimg.imread(path)
-#    if img.dtype == np.float32: # Si le résultat n'est pas un tableau d'entiers
-#      img = (img * 255).astype(np.uint8)
+    print("Image loaded :", img.shape)
+    img = img.astype(np.float32)
     return img
 
   def display(self, array):
-    print(type(array))
-    print(type(array[0][0][0]))
     plt.imshow(array)
     plt.show()

@@ -1,12 +1,5 @@
 import numpy as np
 
-def vector_funk(a, thresholds):
-    """ apply celluloid shade """
-    b = np.linspace(0, 1, thresholds)
-    for n in b:
-        if n >= a:
-            return n
-
 class ColorFilter():
     def __init__(self):
         pass
@@ -30,20 +23,21 @@ class ColorFilter():
 
     def celluloid(self, array, thresholds=4):
         a = np.array(array)
-        vfunk = np.vectorize(vector_funk)
-        return vfunk(a, thresholds)
+        a *= thresholds
+        a = a.astype(np.int8)
+        a = a.astype(np.float32)
+        a /= thresholds
+        return a
 
     def to_grayscale(self, array, arg='weighted'):
         a = np.array(array)
-        a = a.astype(np.float32) / 255
         if arg == 'weighted' or arg == 'w':
-            a[:, :, 0] *= np.float32(0.299)
-            a[:, :, 1] *= np.float32(0.587)
-            a[:, :, 2] *= np.float32(0.114)
+            shape = a.shape
+            a *= [0.299, 0.587, 0.114]
+            a = np.sum(a, axis=2, keepdims=True)
+            a = np.broadcast_to(a, shape)
             return a
         elif arg == 'mean' or arg == 'm':
-            newar = np.ones_like(a)
-            for i, elem in enumerate(a):
-                for j, ele in enumerate(elem):
-                    newar[i, j] *= np.sum(ele) / 3
-            return newar
+            a = np.mean(a, axis=2, keepdims=True)
+            a = np.tile(a, (1 , 1, 3))
+            return a
