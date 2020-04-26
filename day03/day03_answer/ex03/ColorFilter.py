@@ -38,6 +38,7 @@ class ColorFilter():
 
     def to_grayscale(self, array, arg='weighted'):
         a = np.array(array)
+        a = a.astype(np.float32) / 255
         if arg == 'weighted' or arg == 'w':
             a[:, :, 0] *= np.float32(0.299)
             a[:, :, 1] *= np.float32(0.587)

@@ -1,5 +1,4 @@
 from ImageProcessor import ImageProcessor as ip
-from ScrapBooker import ScrapBooker as scbook
 from ColorFilter import ColorFilter as cf
 import numpy as np
 
@@ -7,7 +6,6 @@ i = ip()
 c = cf()
 
 img = i.load("../resources/42AI.png")
-s = scbook()
 
 test = np.zeros((2, 2, 3))
 #print(img.size)
