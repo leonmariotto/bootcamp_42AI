@@ -47,8 +47,12 @@ def cost_(y, y_hat):
         return None
     if y.all() is None or y_hat.all() is None:
         return None
-    y = y.reshape((y.shape[0], ))
-    y_hat = y_hat.reshape((y.shape[0], ))
+    try:
+        y.shape[1]
+        y_hat.shape[1]
+    except IndexError:
+        y = y.reshape((y.shape[0], 1))
+        y_hat = y_hat.reshape((y.shape[0], 1))
     if y.shape != y_hat.shape:
         return None
     return cost_elem_(y, y_hat).sum()

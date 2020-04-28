@@ -1,0 +1,19 @@
+1 - 
+The equation 
+h(x) = Theta0 + Theta1 * x 
+is like
+h(x) = Theta0 * 1 + Theta1 * x 
+same as
+[Theta0, Theta1] * [1, x]
+We add 1 for Theta0
+
+2 -
+It's in the var equation, it's useful for make this value absolute
+
+3 -
+Itself the cost function output mean nothing. But it can be used
+to compare the efficiency of hypothesis functions. That's our measure of
+performance P in Tom Mitchell's definition of machine learning (1997).
+
+4 -
+We want cost function equal to 0. That would mean our prediction is perfect.

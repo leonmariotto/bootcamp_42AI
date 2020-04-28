@@ -1,7 +1,6 @@
 import numpy as np
 
 
-
 def mse_(y, y_hat):
     """
         Description:
