@@ -76,7 +76,10 @@ def simple_gradient(x, y, theta):
     if type(y) is not np.ndarray or y.size == 0:
         return None
     y_hat = predict_(x, theta)
+    print(y_hat)
     try:
-        return np.array([(y_hat - y).sum(), np.dot((y_hat - y).T, x)[0][0]]) / y.shape[0]
+        theta0 = theta[0] - (y_hat - y).sum() / y.shape[0]
+        theta1 = theta[1] - np.dot((y_hat - y).T, x)[0][0] / y.shape[0]
+        return np.array([theta0, theta1])
     except ValueError:
         return None

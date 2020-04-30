@@ -30,6 +30,6 @@ def gradient(x, y, theta):
     try:
         x = np.column_stack((np.ones((x.shape[0], 1)), x))
         y_hat = np.dot(x, theta).astype(np.float32).reshape(y.shape[0], 1)
-        return np.dot((y_hat - y).T, x[:]) / y.shape[0]
+        return theta - np.dot((y_hat - y).T, x[:]) / y.shape[0]
     except ValueError:
         return None

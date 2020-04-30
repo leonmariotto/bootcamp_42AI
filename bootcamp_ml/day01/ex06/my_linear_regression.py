@@ -48,9 +48,9 @@ class MyLinearRegression():
         nx = np.column_stack((np.ones((x.shape[0], 1)), x))
         return np.dot(nx, self.thetas.reshape(2,1)).astype(np.float32)
 
-    def cost_elem_(self, y_hat, y):
+    def cost_elem_(self, x, y):
         ny = np.array(y)
-        ny_hat = np.array(y_hat)
+        ny_hat = self.predict_(x)
         if (
                 type(ny) is not np.ndarray or ny.size == 0 or
                 type(ny_hat) is not np.ndarray or ny_hat.size == 0
@@ -61,9 +61,10 @@ class MyLinearRegression():
         q = 1 / (ny.shape[0] * 2)
         return np.power(ny_hat - ny, 2) * q
 
-    def cost_(self, y_hat, y):
+    def cost_(self, x, y):
         ny = np.array(y)
-        ny_hat = np.array(y_hat)
+        ny_hat = self.predict_(x)
+        #ny_hat = np.array(y_hat)
         if type(ny) is not np.ndarray or ny.size == 0:
             return
         if type(ny_hat) is not np.ndarray or ny_hat.size == 0:
