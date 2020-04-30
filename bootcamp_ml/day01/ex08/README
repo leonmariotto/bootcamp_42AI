@@ -1,0 +1,19 @@
+1 -
+An hypothesis is a linear continuous function. 
+It's a model used for make prediction.
+2 -
+Cost function measure the performance P of a hypothesis.
+It it's equal to 0, the hypothesis is perfect.
+3 - 
+A Linear Gradient Descent is a operation which transform
+a set of data into a continuous line (hypothesis).
+The goal of a linear regression is to make J (The performance)
+the more equal to 0 as it can be.
+4 -
+With a learning rate too large the gradient descent may
+fail to converge to a local minimum.
+5 -
+The Gradient Descent will still give us a local minimum but
+quit slowly.
+6 -
+MSE ( Mean Squarred Error ) is almost same as cost function except the sqare is divided by m (like mean) instead or 2 * m (Cost function)
