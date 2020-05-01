@@ -1,0 +1,19 @@
+1 -
+Univariates are with one features X
+so X.shape = (m , 1) m = training example
+and theta.shape = (2, 1)
+Multivariate :
+X.shape = (m * n) n = num of features
+and theta.shape = (n, 1)
+
+2 -
+We dont want n >= m
+
+3 - 
+We dont want n >= m
+
+4 -
+Yes. But we can use the Normal Equation
+
+5 -
+
