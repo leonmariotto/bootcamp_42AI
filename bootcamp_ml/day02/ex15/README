@@ -1,0 +1,20 @@
+1 -
+Overfitting is when a prediction is too complexe and don't capture
+the relation between x and y.
+
+Fit the data perfectly
+neql
+Capture the relationship between x and y
+
+2 -
+Linear regression on a complexe relationship ?
+
+3 -
+It's the only way for deal with overfitting.
+
+4 -
+Performance on test set might be null and on training test it might be
+near perfect.
+
+5 - 
+It will be the same.

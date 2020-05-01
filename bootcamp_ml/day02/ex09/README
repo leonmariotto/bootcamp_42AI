@@ -1,0 +1,19 @@
+1 -
+Univariate : X.shape = (m * 1)
+Multivariate : X.shape = (m * n)
+m : training examples
+n : features
+
+2 -
+No, need at least two variable (x and y)
+
+3 - 
+If n >= m the normal equation may fail. But we can get the linear regression
+with a gradient descent.
+So no.
+
+4 -
+It's more operation but all operations are vectorized.
+
+5 -
+Mean
