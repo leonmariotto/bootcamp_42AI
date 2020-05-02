@@ -32,7 +32,7 @@ class MyLogisticRegression():
             predict = np.dot(nx, self.thetas)
             logistic_predict = 1 / (1 + np.exp(-predict))
         except ValueError:
-            raise ValueError
+            return None
         return logistic_predict
 
 
@@ -83,8 +83,10 @@ class MyLogisticRegression():
             return None
         nx = np.array(x)
         nx = np.column_stack((np.ones((nx.shape[0], 1)), nx))
+        y = y.reshape(y.shape[0], 1)
         for i in range(self.n_cycle):
             y_hat = self.predict_(x)
             self.thetas = self.thetas - self.alpha * (np.dot(nx.T, y_hat - y) / y.shape[0])
+            #print("thetas = ", self.thetas)
             self.thetas = self.thetas.reshape(self.thetas.shape[0], 1)
         return self.thetas
